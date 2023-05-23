@@ -9,7 +9,6 @@ import Login from './login'
 import Contact from './contact'
 
 
-
 //Signout
   function handleSignOut(){
     signOut()

@@ -15,9 +15,10 @@ const [image, setImage] = useState('');
   let currentTab = 0; // Current tab is set to be the first tab (0)
   showTab(currentTab); // Display the current tab
 
+
   async function handleSubmit(e){
     e.preventDefault();
-    let values={ username, email, profession,years,image }
+    let values={ username, email, profession,years,image ,email:session.user.email}
     console.log(values)
     try{
         // Send signup request to the API

@@ -63,17 +63,20 @@ import Loader from '@/components/Loader';
 
           setMessage(data.message)
           setMsgColor(data.msgColor)
+        console.log("email"+email)
           
           const timer = setTimeout(() => {
           setIsLoading(false);
           setShowMessage(false)
                 // router.push("http://localhost:3000");
-          if(response.success){
-            fetchVerification()
-          }
+          // if(response.success){
+          //   fetchVerification(email)
+          // }
+            fetchVerification(email)
 
           }, 2000);
            return () => clearTimeout(timer);
+
 
       }catch(error){
 
@@ -140,31 +143,59 @@ import Loader from '@/components/Loader';
     // Github Login 
     async function handleGithubSignin(){
         signIn('github')
-          fetchVerification()
 
     }
 
-        const fetchVerification = async () => {
-        try {
-          const response = await fetch('/api/verifications', {
-            method: 'POST',
-          });
-          const jsonData = await response.json();
-          console.log(jsonData)
-          handleWebhook()
-          // Redirect to a specific route after the component mounts
-           router.push(jsonData.url);
+    const fetchVerification = async (email) => {
 
-        } catch (error) {
-           console.log(error)
-          console.error('Error fetching data:', error);
-        }
+    try {
+      const response = await fetch('/api/verifications', {
+        method: 'POST',
+        
+      });
+
+      const jsonData = await response.json();
+      console.log(jsonData)
+      console.log("email"+email)
+
+      handleWebhook(email)
+      // Redirect to a specific route after the component mounts
+      router.push(jsonData.url);
+
+    } catch (error) {
+        console.log(error)
+      console.error('Error fetching data:', error);
+    }
     }
 
-    const handleWebhook= async () => {
+    const handleWebhook= async (email) => {
+      console.log("handleWebhook"+email)
+
       try {
-        const res = await fetch('/api/webhooks', {
+
+        const res = await fetch(`/api/webhooks/${email}}`, {
           method: 'POST',
+        });
+
+        const jsonData = await res.json();
+        console.log("handleWebhook"+email)
+
+        console.log("result2  "+jsonData)
+        // console.log("result3  "+result)
+        updateArtisan(email,jsonData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    const updateArtisan= async (email,artisan) => {
+      console.log("update artisan"+email)
+
+      try {
+
+        const res = await fetch(`/api/artisan/profile`, {
+          method: 'PATCH',
+          body:JSON.stringify({email:email,artisan,artisan})
         });
 
         // const result = await res.json();
@@ -176,7 +207,6 @@ import Loader from '@/components/Loader';
         console.log(error)
       }
     }
-
     return (
 
       <section className="bg-white">

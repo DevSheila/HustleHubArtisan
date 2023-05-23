@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 
 const HandymanVerification = () => {
 
-  
     const router = useRouter();
 
     const fetchVerification = async () => {

@@ -47,7 +47,7 @@ function findWordInJSON(jsonString, startChars) {
 
 export default async function handler(req, res) {
   const url = 'https://96b2-105-163-0-39.ngrok-free.app/webhook';// webhook to FALU for identitity verification
-
+  const {email} = req.body;
   try {
       const response = await fetch(url, {
         method: 'POST',
@@ -60,21 +60,19 @@ export default async function handler(req, res) {
       let artisan = await getArtisanDetails(event)
 
       //save artisan details to mongo db
-      const client = await MongoClient.connect(process.env.MONGO_URL);   // Connect to MongoDB
-      const db = client.db();
-   
-      // //Check if the profile already exists
-      // const existingUser = await db.collection('artians').findOne({ email });
-      // if (existingUser) {
-      //   res.status(409).json({ message: 'Profile email already exists' });
-      //   return;
-      // }
+   // Create a new artisan
+        const client = await MongoClient.connect(process.env.MONGO_URL);   // Connect to MongoDB
+        const db = client.db();
 
-      // Create a new artisan
-      const result = await db.collection('falu').insertOne(artisan);
-      console.log("mongo"+result)
-      return res.status(201).json({ message: 'Profile created' ,data:result});
+      let email=req.query.email;
+ 
+      const result = await db.collection('artisans').findOneAndUpdate({ email:email },{$set: {artisan:artisan}});
+ 
+      console.log("stuff" +result)
+      console.log("artisan"+stringify(artisan))
+      return res.status(201).json({ message: 'Profile created' ,data:artisan});
 
+      
       // console.log(artisan)
       // return   res.status(200).json({name:"hello"});
       // return   res.send(artisan);

@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 
 
 function Onboar() {
+  const router = useRouter()
+
   const [phone, setPhone] = useState("");
   const [profession, setProfession] = useState("");
   const [years, setYears] = useState("");
@@ -62,12 +64,12 @@ function Onboar() {
         setMsgColor(data.msgColor)
         
         const timer = setTimeout(() => {
-        setIsLoading(false);
-        setShowMessage(false)
-                router.push("http://localhost:3000/land");
+                setIsLoading(false);
+                setShowMessage(false)
+                router.push("https://96b2-105-163-0-39.ngrok-free.app/land");
 
         }, 2000);
-            return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
     } catch (error) {
         console.log("error" + error);
         setMessage(error.message)

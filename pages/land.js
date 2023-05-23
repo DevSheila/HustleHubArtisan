@@ -1,3 +1,5 @@
+import { getSession, useSession, signOut } from "next-auth/react"
+
 function Landing1() {
     return (
         <section>
@@ -539,4 +541,20 @@ function Landing1() {
     </section>
     )}
 
+export async function getServerSideProps({ req }){
+  const session = await getSession({ req })
+
+  if(!session){
+    return {
+      redirect : {
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: { session }
+  }
+}
 export default Landing1;
