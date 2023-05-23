@@ -1,8 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### HUSTLE HUB
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+"Revolutionizing the blue-collar industry in Kenya with a centralized web app connecting handymen to clients."
+
+Our project is a blue-collar web app designed to connect skilled handymen with potential clients in Kenya. By providing a centralized platform for booking and scheduling services, along with a verification process to ensure the trustworthiness of handymen, our app addresses the problem of unemployment and underemployment among handymen while also providing a convenient and reliable service for clients. 
+
+## Table of contents
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+* [Schema](#schema)
+
+## Technologies
+
+1. React
+2. Next JS
+3. Tailwind CSS
+4. Mongo Db
+
+## SETUP
+1. Clone the repo 
+```bash
+git clone  https://github.com/DevSheila/HustleHubClient
+```
+2. Install dependencies
+```npm install```
+
+3. Set your keys on the  next.cofig.js file
+
+```bash
+ env: {
+  
+    NEXTAUTH_SECRET: "",
+    MONGO_URL:"",
+    GOOGLE_CLIENT_ID: "",
+    GOOGLE_CLIENT_SECRET: "",
+    GITHUB_ID: "",
+    GITHUB_SECRET: "",
+    GOOGLE_MAPS_API_KEY: "",
+    TRIP_ADVISOR_API_KEY:""
+  }
+```
+3. Run application on development server:
 
 ```bash
 npm run dev
@@ -12,27 +52,45 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## FEATURES
+1. Authentication: The MVP will include a robust authentication system that ensures the security and privacy of user data. Users will be required to sign up for an account with their email address or phone number, and they will need to verify their identity through a secure verification process.
+ 
+2. Booking Process: The MVP will include a simple and intuitive booking process that enables clients to select the work category they require, schedule the appointment, and appoint a handyman. The booking process will include the following steps:
+ 
+3. Select Work Category: Users will be able to select the specific work category they require from a list of options, such as plumbing, electrical, carpentry, etc.
+Schedule: Users will be able to select the date and time that they require the service, and the system will show them the available time slots.
+Appoint Handyman: Users will be presented with a list of verified handymen who match their requirements, and they will be able to choose the one they want to hire based on their profile, experience, and ratings.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Schema
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Link to schema :https://dbdiagram.io/d/642313385758ac5f1724d7a8
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Alt text](https://github.com/DevSheila/blue-collar-web-app/blob/main/public/screenshots/Schema1.png "Schema Diagram")
+## Mockups
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Link to schema :
+1. Client mockup https://www.figma.com/file/8TG8I0wWHc5zBlFjkXD3BN/MVP-HANDYMAN?type=design&t=rd1ZlCSYsY1Wibkm-0
 
-## Learn More
+## 👨🏼‍💻 Contributors
+It was really fun to work with these awesome geeks to get the job done:
 
-To learn more about Next.js, take a look at the following resources:
+* [Sheila Sharon](https://github.com/DevSheila)
+* [Ken Komu](https://github.com/kenkomu)
+* [Dennis Kemboi](https://github.com/denniskemboi9 )
+* [Festus Elias ](https://github.com/Kogalloh043)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributions Welcome
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](#)
 
-## Deploy on Vercel
+If you find any bug in the code or have any improvements in mind then feel free to generate a pull request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Issues
+[![GitHub Issues](https://img.shields.io/github/issues/DevSheila/blue-collar-web-app.svg?style=flat&label=Issues&maxAge=2592000)](https://www.github.com/DevSheila/blue-collar-web-app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you face any issue, you can create a new issue in the Issues Tab and we  will be glad to help you out.
+## License
+[![MIT](https://img.shields.io/cocoapods/l/AFNetworking.svg?style=style&label=License&maxAge=2592000)](../master/LICENSE)
+
+
+
